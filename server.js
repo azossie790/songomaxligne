@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'publique')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // ─── ÉTAT DU JEU ──────────────────────────────────────────────────────────────
 // Plateau : cases[0..6] = SUD (joueur SUD), cases[7..13] = NORD (joueur NORD)

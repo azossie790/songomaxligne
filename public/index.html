@@ -16,11 +16,6 @@
     --bois-moyen: #5C2E0A;
     --sable: #F5E6C8;
     --sable-fonce: #E8D5A3;
-    --vert: #2D6A2D;
-    --rouge: #C0392B;
-    --bleu: #1A5276;
-    --gris: #7F8C8D;
-    --blanc: #FDFAF4;
     --ombre: rgba(0,0,0,0.35);
   }
 
@@ -28,7 +23,7 @@
 
   body {
     background: var(--bois);
-    background-image: 
+    background-image:
       radial-gradient(ellipse at 20% 50%, rgba(93,46,10,0.8) 0%, transparent 60%),
       radial-gradient(ellipse at 80% 50%, rgba(93,46,10,0.8) 0%, transparent 60%);
     min-height: 100vh;
@@ -59,7 +54,6 @@
     opacity: 0.7;
   }
 
-  /* ─ ÉCRAN CONNEXION ─ */
   #ecran-connexion {
     background: linear-gradient(135deg, var(--bois-moyen), #2A1200);
     border: 2px solid var(--terre-clair);
@@ -77,10 +71,7 @@
     margin-bottom: 24px;
   }
 
-  .champ-groupe {
-    margin-bottom: 16px;
-    text-align: left;
-  }
+  .champ-groupe { margin-bottom: 16px; text-align: left; }
 
   .champ-groupe label {
     display: block;
@@ -100,13 +91,11 @@
     color: var(--sable);
     font-size: 0.95rem;
     font-family: 'Inter', sans-serif;
-    transition: border-color 0.2s;
   }
 
   .champ-groupe input:focus, .champ-groupe select:focus {
     outline: none;
     border-color: var(--or);
-    background: rgba(212,160,23,0.08);
   }
 
   .champ-groupe select option { background: var(--bois-moyen); }
@@ -120,15 +109,13 @@
     color: var(--bois);
     font-weight: 700;
     font-size: 1rem;
-    letter-spacing: 0.05em;
     cursor: pointer;
     margin-top: 8px;
-    transition: transform 0.15s, box-shadow 0.15s;
+    transition: transform 0.15s;
     box-shadow: 0 4px 15px rgba(196,119,42,0.4);
   }
 
-  .btn-primaire:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(196,119,42,0.5); }
-  .btn-primaire:active { transform: translateY(0); }
+  .btn-primaire:hover { transform: translateY(-1px); }
 
   .aide-connexion {
     margin-top: 16px;
@@ -138,7 +125,6 @@
     line-height: 1.5;
   }
 
-  /* ─ JEU ─ */
   #ecran-jeu { display: none; width: min(700px, 100%); }
 
   .infos-jeu {
@@ -152,19 +138,10 @@
     border: 1px solid rgba(196,119,42,0.3);
   }
 
-  .badge-joueur {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-  }
-
-  .badge-joueur .point {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-  }
-  .badge-joueur.sud .point { background: var(--terre-clair); }
-  .badge-joueur.nord .point { background: var(--bleu); }
+  .badge-joueur { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; }
+  .badge-joueur .point { width: 10px; height: 10px; border-radius: 50%; }
+  .badge-joueur.sud .point  { background: var(--terre-clair); }
+  .badge-joueur.nord .point { background: #5DADE2; }
 
   .badge-score {
     font-family: 'Cinzel Decorative', serif;
@@ -172,24 +149,12 @@
     color: var(--or-clair);
   }
 
-  .badge-tour {
-    font-size: 0.78rem;
-    background: rgba(212,160,23,0.15);
-    border: 1px solid var(--or);
-    border-radius: 20px;
-    padding: 4px 12px;
-    color: var(--or-clair);
-    text-align: center;
-  }
-
-  /* ─ PLATEAU ─ */
   .plateau {
     background: linear-gradient(160deg, #6B3410, #4A2008, #3D1A05);
     border: 3px solid var(--terre-clair);
     border-radius: 20px;
     padding: 20px 16px;
     box-shadow: 0 8px 40px var(--ombre), inset 0 2px 0 rgba(212,160,23,0.15);
-    position: relative;
   }
 
   .label-camp {
@@ -203,16 +168,10 @@
   .label-camp.nord { color: #7BB3D4; }
   .label-camp.sud  { color: #E8A05A; margin-top: 8px; margin-bottom: 0; }
 
-  .rangee {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin: 4px 0;
-  }
+  .rangee { display: flex; justify-content: center; gap: 8px; margin: 4px 0; }
 
   .case {
-    width: 72px;
-    height: 72px;
+    width: 72px; height: 72px;
     background: radial-gradient(circle at 40% 35%, #8B5E3C, #4A2008);
     border: 2px solid var(--terre);
     border-radius: 50%;
@@ -221,9 +180,9 @@
     align-items: center;
     justify-content: center;
     cursor: default;
-    position: relative;
     transition: all 0.2s;
     box-shadow: inset 0 3px 8px rgba(0,0,0,0.4), 0 2px 6px rgba(0,0,0,0.3);
+    user-select: none;
   }
 
   .case .nb-graines {
@@ -234,45 +193,29 @@
     text-shadow: 0 1px 3px rgba(0,0,0,0.8);
   }
 
-  .case .num-case {
-    font-size: 0.58rem;
-    color: rgba(245,230,200,0.4);
-    margin-top: 2px;
-  }
+  .case .num-case { font-size: 0.58rem; color: rgba(245,230,200,0.35); margin-top: 2px; }
 
   .case.jouable {
     cursor: pointer;
     border-color: var(--or);
     background: radial-gradient(circle at 40% 35%, #A0723A, #5C2E0A);
-    box-shadow: inset 0 3px 8px rgba(0,0,0,0.3), 0 0 12px rgba(212,160,23,0.35), 0 2px 6px rgba(0,0,0,0.3);
     animation: pulse-or 1.8s ease-in-out infinite;
   }
+
+  .case.jouable:hover { transform: scale(1.08); }
+  .case.vide .nb-graines { color: rgba(245,230,200,0.2); }
 
   @keyframes pulse-or {
     0%, 100% { box-shadow: inset 0 3px 8px rgba(0,0,0,0.3), 0 0 12px rgba(212,160,23,0.35); }
     50%       { box-shadow: inset 0 3px 8px rgba(0,0,0,0.3), 0 0 22px rgba(212,160,23,0.65); }
   }
 
-  .case.jouable:hover {
-    transform: scale(1.08);
-    border-color: var(--or-clair);
-  }
-
-  .case.vide .nb-graines { color: rgba(245,230,200,0.2); }
-
-  .case.dernier {
-    border-color: #E74C3C;
-    box-shadow: inset 0 3px 8px rgba(0,0,0,0.3), 0 0 15px rgba(231,76,60,0.5);
-  }
-
   .separateur {
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--terre-clair), transparent);
     margin: 8px 16px;
-    border-radius: 1px;
   }
 
-  /* ─ MESSAGE ─ */
   .message-jeu {
     margin-top: 14px;
     padding: 10px 16px;
@@ -285,7 +228,6 @@
     line-height: 1.5;
   }
 
-  /* ─ ATTENTE ─ */
   .attente-badge {
     display: inline-flex;
     align-items: center;
@@ -306,11 +248,8 @@
     animation: clignoter 1.2s ease-in-out infinite;
   }
 
-  @keyframes clignoter {
-    0%, 100% { opacity: 1; } 50% { opacity: 0.2; }
-  }
+  @keyframes clignoter { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
 
-  /* ─ FIN DE PARTIE ─ */
   #overlay-fin {
     display: none;
     position: fixed;
@@ -347,15 +286,9 @@
     margin-bottom: 14px;
   }
   .indicateur-role.sud  { background: rgba(196,119,42,0.2); border: 1px solid var(--terre-clair); color: var(--terre-clair); }
-  .indicateur-role.nord { background: rgba(26,82,118,0.2); border: 1px solid #5DADE2; color: #7BB3D4; }
+  .indicateur-role.nord { background: rgba(26,82,118,0.2);  border: 1px solid #5DADE2; color: #7BB3D4; }
 
-  #id-partie-display {
-    font-size: 0.75rem;
-    color: var(--or);
-    opacity: 0.6;
-    margin-top: 4px;
-    letter-spacing: 0.1em;
-  }
+  #id-partie-display { font-size: 0.75rem; color: var(--or); opacity: 0.6; margin-top: 4px; letter-spacing: 0.1em; }
 </style>
 </head>
 <body>
@@ -366,12 +299,10 @@
 <!-- ÉCRAN CONNEXION -->
 <div id="ecran-connexion">
   <h2>Rejoindre une Partie</h2>
-
   <div class="champ-groupe">
     <label>ID de la partie</label>
     <input type="text" id="input-partie-id" placeholder="Ex: partie123" maxlength="20"/>
   </div>
-
   <div class="champ-groupe">
     <label>Votre camp</label>
     <select id="select-joueur">
@@ -379,9 +310,7 @@
       <option value="NORD">NORD (rangée du haut)</option>
     </select>
   </div>
-
   <button class="btn-primaire" onclick="rejoindre()">Rejoindre la partie</button>
-
   <p class="aide-connexion">
     Donnez le même ID à votre adversaire.<br/>
     Un joueur prend SUD, l'autre prend NORD.
@@ -415,11 +344,9 @@
   </div>
 
   <div class="plateau">
-    <!-- NORD (rangée du haut — cases 13→7, affichées case1→case7 vu par NORD) -->
     <p class="label-camp nord">◂ NORD ▸</p>
     <div class="rangee" id="rangee-nord"></div>
     <div class="separateur"></div>
-    <!-- SUD (rangée du bas — cases 0→6, affichées case1→case7 vu par SUD) -->
     <div class="rangee" id="rangee-sud"></div>
     <p class="label-camp sud">◂ SUD ▸</p>
   </div>
@@ -438,19 +365,17 @@
 </div>
 
 <script>
-// ─── CONFIG ───────────────────────────────────────────────────────────────────
 const SERVEUR = 'https://songomaxligne.onrender.com';
-const POLL_MS = 1500; // polling toutes les 1.5s
+const POLL_MS = 1500;
 
-let monJoueur = null;
-let partieId = null;
+let monJoueur   = null;
+let partieId    = null;
 let intervalPoll = null;
-let dernierEtat = null;
+let dernierEtat  = null;
 
-// ─── CONNEXION ────────────────────────────────────────────────────────────────
 async function rejoindre() {
-  partieId = document.getElementById('input-partie-id').value.trim();
-  monJoueur = document.getElementById('select-joueur').value;
+  partieId   = document.getElementById('input-partie-id').value.trim();
+  monJoueur  = document.getElementById('select-joueur').value;
 
   if (!partieId) { alert('Entrez un ID de partie'); return; }
 
@@ -463,7 +388,6 @@ async function rejoindre() {
     const data = await rep.json();
     if (data.erreur) { alert(data.erreur); return; }
 
-    // Afficher l'écran de jeu
     document.getElementById('ecran-connexion').style.display = 'none';
     document.getElementById('ecran-jeu').style.display = 'block';
 
@@ -473,8 +397,6 @@ async function rejoindre() {
     document.getElementById('id-partie-display').textContent = `Partie : ${partieId}`;
 
     appliquerEtat(data);
-
-    // Démarrer le polling Ajax
     intervalPoll = setInterval(pollEtat, POLL_MS);
 
   } catch(e) {
@@ -482,86 +404,63 @@ async function rejoindre() {
   }
 }
 
-// ─── POLLING AJAX ─────────────────────────────────────────────────────────────
 async function pollEtat() {
   try {
-    const rep = await fetch(`${SERVEUR}/api/etat/${partieId}/${monJoueur}`);
+    const rep  = await fetch(`${SERVEUR}/api/etat/${partieId}/${monJoueur}`);
     const data = await rep.json();
     if (data.erreur) return;
     appliquerEtat(data);
-  } catch(e) { /* serveur temporairement inaccessible */ }
+  } catch(e) {}
 }
 
-// ─── APPLIQUER L'ÉTAT AU DOM ──────────────────────────────────────────────────
 function appliquerEtat(etat) {
   dernierEtat = etat;
 
-  // Scores
-  document.getElementById('score-sud').textContent = etat.scores.SUD;
+  document.getElementById('score-sud').textContent  = etat.scores.SUD;
   document.getElementById('score-nord').textContent = etat.scores.NORD;
-  document.getElementById('badge-score-centre').textContent =
-    `${etat.scores.NORD} : ${etat.scores.SUD}`;
+  document.getElementById('badge-score-centre').textContent = `${etat.scores.NORD} : ${etat.scores.SUD}`;
 
-  // Attente
   const badgeAttente = document.getElementById('badge-attente');
   badgeAttente.style.display = etat.statut === 'attente' ? 'inline-flex' : 'none';
 
-  // Message
   document.getElementById('message-jeu').textContent = etat.message || '';
 
-  // Tour
   const cEstMonTour = etat.statut === 'en_cours' && etat.tour === monJoueur;
-
-  // Rendu rangées
   afficherRangeeNord(etat.plateau, cEstMonTour);
   afficherRangeeSud(etat.plateau, cEstMonTour);
 
-  // Fin de partie
   if (etat.statut === 'termine') {
     clearInterval(intervalPoll);
-    document.getElementById('fin-titre').textContent = '— Fin de Partie —';
+    document.getElementById('fin-titre').textContent  = '— Fin de Partie —';
     document.getElementById('fin-message').textContent = etat.fin;
     document.getElementById('overlay-fin').classList.add('actif');
   }
 }
 
-// NORD : cases index [13, 12, 11, 10, 9, 8, 7] (case1→case7 vu par NORD)
 function afficherRangeeNord(plateau, cEstMonTour) {
   const rangee = document.getElementById('rangee-nord');
   rangee.innerHTML = '';
-  const indices = [13, 12, 11, 10, 9, 8, 7]; // case1 NORD = idx 13
-  for (let i = 0; i < 7; i++) {
-    const idx = indices[i];
-    const graines = plateau[idx];
+  [13,12,11,10,9,8,7].forEach((idx, pos) => {
+    const graines    = plateau[idx];
     const estJouable = monJoueur === 'NORD' && cEstMonTour && graines > 0;
-    const div = creerCase(idx, graines, i + 1, estJouable);
-    rangee.appendChild(div);
-  }
+    rangee.appendChild(creerCase(idx, graines, pos + 1, estJouable));
+  });
 }
 
-// SUD : cases index [0, 1, 2, 3, 4, 5, 6] (case1→case7 vu par SUD)
-// Mais affiché en miroir : SUD voit sa rangée de droite à gauche par rapport au plateau
-// case 7 SUD (idx 6) est à droite, case 1 SUD (idx 0) est à gauche vu par SUD
-// On affiche [0, 1, 2, 3, 4, 5, 6] = case1 à gauche pour SUD
 function afficherRangeeSud(plateau, cEstMonTour) {
   const rangee = document.getElementById('rangee-sud');
   rangee.innerHTML = '';
-  for (let i = 0; i < 7; i++) {
-    const idx = i; // 0=case1, 6=case7
-    const graines = plateau[idx];
+  [0,1,2,3,4,5,6].forEach((idx, pos) => {
+    const graines    = plateau[idx];
     const estJouable = monJoueur === 'SUD' && cEstMonTour && graines > 0;
-    const div = creerCase(idx, graines, i + 1, estJouable);
-    rangee.appendChild(div);
-  }
+    rangee.appendChild(creerCase(idx, graines, pos + 1, estJouable));
+  });
 }
 
 function creerCase(idx, graines, numCase, estJouable) {
   const div = document.createElement('div');
   div.className = 'case' + (graines === 0 ? ' vide' : '') + (estJouable ? ' jouable' : '');
-  div.innerHTML = `
-    <span class="nb-graines">${graines}</span>
-    <span class="num-case">${numCase}</span>
-  `;
+  div.innerHTML = `<span class="nb-graines">${graines}</span><span class="num-case">${numCase}</span>`;
   if (estJouable) {
     div.addEventListener('click', () => jouerCoup(idx));
     div.title = `Semer depuis la case ${numCase}`;
@@ -569,12 +468,10 @@ function creerCase(idx, graines, numCase, estJouable) {
   return div;
 }
 
-// ─── JOUER UN COUP ────────────────────────────────────────────────────────────
 async function jouerCoup(caseIndex) {
   if (!dernierEtat || dernierEtat.tour !== monJoueur) return;
-
   try {
-    const rep = await fetch(`${SERVEUR}/api/jouer`, {
+    const rep  = await fetch(`${SERVEUR}/api/jouer`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ partieId, joueur: monJoueur, caseIndex })
@@ -590,7 +487,6 @@ async function jouerCoup(caseIndex) {
   }
 }
 
-// ─── ENTER sur le champ ID ────────────────────────────────────────────────────
 document.getElementById('input-partie-id').addEventListener('keyup', e => {
   if (e.key === 'Enter') rejoindre();
 });
